@@ -8,10 +8,10 @@
 
 <ion-content [fullscreen]="true">
   <ion-list>
-    <ion-item-sliding>
+    <ion-item-sliding *ngFor="let task of tasks">
       <ion-item>
         <ion-label>
-          Tarefa
+          {{task.name}}
         </ion-label>
         <ion-icon slot="start" name="radio-button-off"></ion-icon>
       </ion-item>
