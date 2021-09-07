@@ -87,15 +87,34 @@ export class HomePage {
     ]
     });
     actionSheet.present();
-    return;
 
   }
 
   editTask(){
     alert('editou');
   }
-  deleteTask(){
-    alert('removeu');
+  async deleteTask(task: any){
+    const actionSheet = await this.actionSheetCtrl.create({
+      header:'deletar tarefa?',
+      buttons: [{
+        text: 'Deletar?',
+        handler: ()=>{
+          this.tasks = this.tasks.filter(taskArray => task !== taskArray);
+           this.updateLocalStorage();
+        }
+      },{
+        text: 'Cancelar',
+        role: 'cancel',
+        cssClass: 'secondary',
+        handler: ()=>{
+          console.log('clicked cancel');
+        }
+      }
+    ]
+    });
+    actionSheet.present();
+
+
   }
 
 }
