@@ -90,14 +90,12 @@ export class HomePage {
 
   }
 
-  editTask(){
-    alert('editou');
-  }
+
   async deleteTask(task: any){
     const actionSheet = await this.actionSheetCtrl.create({
       header:'deletar tarefa?',
       buttons: [{
-        text: 'Deletar?',
+        text: 'Tem certeza?',
         handler: ()=>{
           this.tasks = this.tasks.filter(taskArray => task !== taskArray);
            this.updateLocalStorage();
